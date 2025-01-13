@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>生成 PWA 图标</title>
+</head>
+<body>
+    <canvas id="icon192" width="192" height="192"></canvas>
+    <canvas id="icon512" width="512" height="512"></canvas>
+    <br>
+    <button onclick="downloadIcons()">下载图标</button>
+
+    <script>
+        function drawIcon(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            
+            // 背景
+            ctx.fillStyle = '#2196F3';
+            ctx.fillRect(0, 0, size, size);
+            
+            // 控制面板外框
+            const padding = size * 0.15;
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(padding, padding, size - 2 * padding, size - 2 * padding);
+            
+            // 绘制开关
+            ctx.fillStyle = '#4CAF50';
+            const switchSize = size * 0.2;
+            ctx.fillRect(size * 0.3, size * 0.35, switchSize, switchSize);
+            
+            // 绘制滑块
+            ctx.fillStyle = '#FF9800';
+            ctx.fillRect(size * 0.3, size * 0.65, size * 0.4, switchSize / 2);
+            
+            // 添加圆角效果
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = size * 0.02;
+            ctx.strokeRect(padding, padding, size - 2 * padding, size - 2 * padding);
+        }
+
+        // 绘制两个尺寸的图标
+        drawIcon(document.getElementById('icon192'), 192);
+        drawIcon(document.getElementById('icon512'), 512);
+
+        function downloadIcons() {
+            // 下载 192x192 图标
+            const link192 = document.createElement('a');
+            link192.download = 'icon-192x192.png';
+            link192.href = document.getElementById('icon192').toDataURL();
+            link192.click();
+
+            // 下载 512x512 图标
+            const link512 = document.createElement('a');
+            link512.download = 'icon-512x512.png';
+            link512.href = document.getElementById('icon512').toDataURL();
+            link512.click();
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,21 @@
+{
+  "name": "ESP32 智能控制",
+  "short_name": "ESP32控制",
+  "description": "ESP32 物联网控制面板",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2196F3",
+  "icons": [
+    {
+      "src": "icons/1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 
